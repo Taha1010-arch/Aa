@@ -1,0 +1,172 @@
+EXP 3
+
+#!/bin/bash
+echo -n "Enter the first number";
+read x;
+
+echo -n "Enter second number";
+read y;
+
+sum=$((x+y))
+echo "SUM: $sum"
+
+quo=$((x/y))
+echo "Quotient: $quo"
+
+
+EXP 4
+a)
+#!/bin/bash
+echo -n "Enter a number: "
+read num
+
+fact=1
+for (( i=1; i<=num; i++ ))
+{
+    fact=$((fact * i))
+}
+
+echo "Factorial of a number is $fact"
+
+b)
+#!/bin/sh
+echo "Enter a number:"
+read x
+
+while [ $x -le 100 ]
+do
+    if [ $(($x % 2)) -eq 0 ]
+    then
+        echo "Even"
+    else
+        echo "Odd"
+    fi
+    echo "Enter another number:"
+    read x
+done
+
+c)
+#!/bin/bash
+echo "Enter the number of rows:"
+read n
+
+for i in $(seq 1 $n)
+do
+    for j in $(seq 1 $i)
+    do
+        echo -n "*"
+    done
+    echo 
+done
+
+EXP 6
+
+#!/bin/bash
+echo "Print last login details"
+echo " "
+
+ll=$(last -1 -R $USER | head -1 | cut -c 20-)
+echo "Last login details:"
+echo "Time: [$ll]"
+export psi="last login time [$ll]"' \n\n:w\$'
+
+EXP 7
+
+#!/bin/bash
+echo "Print the number of arguments"
+echo "Skill Lab Linux Batch A2"
+echo " "
+
+if [[ $# -eq 0 ]]; then
+    echo "Run the file with arguments"
+else
+    echo -n "The number of arguments passed to the file is: "
+    echo $#
+    echo " "
+    echo "The arguments are:"
+    for i in "$@"; do
+        echo "$i"
+    done
+fi
+
+EXP 8
+
+EXP 9
+
+#!/bin/bash
+
+echo "Count"
+echo "Skill Lab Linux: A2 Batch"
+echo ""
+
+# Prompt user for the file name or path
+echo -n "Enter file name or path: "
+read fl
+echo ""
+
+# Check if the file exists
+if [[ ! -e "$fl" ]]; then
+    echo "File does not exist."
+    exit 1
+fi
+
+# Count characters, words, and lines
+char_count=$(wc -m < "$fl")
+word_count=$(wc -w < "$fl")
+line_count=$(wc -l < "$fl")
+exclamation_count=$(grep -o '!' "$fl" | wc -l)  
+
+echo "Number of Characters: $char_count"
+echo "Number of Words: $word_count"
+echo "Number of Lines: $line_count"
+echo "Number of Exclamation Marks: $exclamation_count"
+
+EXP 10
+
+#!/usr/bin/bash
+
+echo "Exp 10 : Delete all log files"
+echo "Skill lab linux : Batch A2"
+echo " "
+
+echo -n "Enter Folder name or path : "
+read fl
+echo " "
+
+echo -n "Warning: Deleting logs may cause errors."
+echo " "
+
+cd $fl && rm -f *.log
+echo -n "Logs cleared successfully"
+echo " "
+
+EXP 11
+
+#!/usr/bin/bash
+echo "exp 11 : print whether vowel or consonant"
+echo "skill lab"
+echo " "
+echo -n "enter a character: "
+read char
+if [[ $char = [aeiouAEIOU] ]]
+then
+    echo "vowel"
+else
+    echo "consonant"
+fi
+
+EXP 12
+
+#! /usr/bin/bash
+echo "Exp 12: Add Hostname and IP to etc folder"
+echo " "
+
+echo "Entered Hostname: $2"
+echo " "
+echo "Entered IP: $1"
+echo " "
+echo "$1 $2" >> /etc/hosts
+echo -n "Host and IP Added Successfully."
+echo " "
+
+
